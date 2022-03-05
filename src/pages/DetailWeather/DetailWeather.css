@@ -24,3 +24,10 @@
     bottom: 0;
     right: 0;
 }
+
+.weather-containers {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+}

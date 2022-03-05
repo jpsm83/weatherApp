@@ -10,7 +10,6 @@
 
 .weather-now-details {
     display: flex;
-    align-items: center;
 }
 
 .weather-now-details h3 {

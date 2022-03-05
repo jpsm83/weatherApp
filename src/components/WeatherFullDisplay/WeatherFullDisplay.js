@@ -15,10 +15,10 @@ const WeatherFullDisplay = () => {
       <div className="weather-full-display-nav">
         <div className="weather-location-container">
           <h4>
-            Código postal:<span>08026</span>
+            Código postal:<strong>08026</strong>
           </h4>
           <h4>
-            Ciudad:<span>Barcelona</span>
+            Ciudad:<strong>Barcelona</strong>
           </h4>
         </div>
         <div className="weather-display-search">

@@ -1,0 +1,46 @@
+.top-five-zonas-container {
+    background-color: rgb(64, 95, 99);
+    padding-top: 20px;
+    height: 323px;
+    width: 260px;
+}
+
+.top-five-zonas-container h2 {
+    font-size: 16px;
+    text-align: center;
+    padding: 0 28px;
+    margin-bottom: 30px;
+}
+
+.zonas-mas-frias-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 10px;
+    border-bottom: 1px solid gray;
+}
+
+.zonas-mas-frias-card h4 {
+    margin: 0%;
+    font-weight: lighter;
+}
+
+.zonas-mas-frias-card h3 {
+    font-size: 30px;
+    margin: 0;
+    text-align: left;
+}
+
+.zonas-mas-frias-details {
+    font-size: 13px;
+    text-align: left;
+    padding-right: 30px;
+}
+
+.zonas-mas-frias-details strong {
+    padding-left: 5px;
+}
+.zonas-mas-frias-details h5 {
+    margin: 0;
+    font-weight: lighter;
+}

@@ -13,11 +13,11 @@
 .weather-location-container h4 {
     font-size: 13px;
     margin: 0;
+    font-weight: lighter;
 }
 
-.weather-location-container span {
+.weather-location-container strong {
     margin-left: 10px;
-    font-weight: bolder;
 }
 
 .weather-display-search {
