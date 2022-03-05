@@ -1,0 +1,31 @@
+.five-days-weather-container {
+    text-align: center;
+    border-left: 1px solid gray;
+    padding-bottom: 10px;
+}
+
+.five-days-weather-container h2 {
+    font-size: 13px;
+}
+.day-single-container {
+    display: flex;
+    align-items: center;
+    cursor:default;
+}
+.day-single-cards {
+    display: flex;
+    width: 280px;
+    overflow: auto;
+    margin-right: 8px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.day-single-cards::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .day-single-cards {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }

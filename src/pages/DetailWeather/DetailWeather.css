@@ -1,0 +1,26 @@
+.detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.detail-header {
+    position: relative;
+    margin: 30px 0 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detail-header h1 {
+    font-weight: 500;
+    font-size: 3rem;
+}
+
+.detail-weather-header-frase {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

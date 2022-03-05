@@ -1,0 +1,13 @@
+.hourly-weather-container {
+    text-align: center;
+    border-left: 1px solid gray;
+    padding-bottom: 10px;
+}
+
+.hourly-weather-container h2 {
+    font-size: 13px;
+}
+
+.hour-single-cards {
+    display: flex;
+}
