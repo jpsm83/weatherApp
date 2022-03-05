@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
+import Home from "./pages/Home/Home";
 
 function App() {
   const [weather, setWeather] = useState();
@@ -11,7 +12,7 @@ function App() {
       const { latitude, longitude } = success.coords;
       axios
         .get(
-          `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&appid=${API_KEY}`
+          `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=${API_KEY}`
         )
         .then((res) => {
           setWeather(res.data);
@@ -24,7 +25,7 @@ function App() {
 
   return (
     <div>
-      <h1>Weather App</h1>
+      <Home />
     </div>
   );
 }
