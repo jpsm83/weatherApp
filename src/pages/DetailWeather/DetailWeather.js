@@ -13,7 +13,6 @@ import {
 const DetailWeather = () => {
   return (
     <div>
-              <FontAwesomeIcon icon={faMagnifyingGlassLocation} size="6x" />
       <FontAwesomeIcon icon={faSnowflake} size="6x" />
       <FontAwesomeIcon icon={faSun} size="6x" />
       <FontAwesomeIcon icon={faCloud} size="6x" />
