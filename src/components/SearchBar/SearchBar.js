@@ -3,19 +3,21 @@ import "./SearchBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlassLocation } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setLocation } from "../../features/locationSlice";
 
 const SearchBar = () => {
   const [postCode, setPostCode] = useState();
-  const [location, setLocation] = useState();
 
-  useEffect(() => {
-    console.log(location);
-  }, [location]);
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     geolocation();
-    console.log(location);
+    navigate("/detail-weather");
   };
 
   const handleChange = (e) => {
@@ -33,7 +35,7 @@ const SearchBar = () => {
         },
       })
       .then((res) => {
-        setLocation(res.data);
+        dispatch(setLocation(res.data))
       })
       .catch((error) => console.log(error));
   };
@@ -48,7 +50,7 @@ const SearchBar = () => {
           onChange={handleChange}
         />
         <button className="submit-button" type="submit">
-          Buscar{" "}
+          Buscar
           <FontAwesomeIcon
             icon={faMagnifyingGlassLocation}
             className="search-icon"
