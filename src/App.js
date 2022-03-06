@@ -31,14 +31,15 @@ function App() {
   }, []);
 
   const geolocation = () => {
-    const location = "carrer mallorca 585 barcelona spain 08026"
+    const postalCode = "08026";
     const googleApiKey = "AIzaSyDvgGZ6g32NvcVVPHR8rWyXc_syAkGQEvE";
     // const mapsURL = `https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=${googleApiKey}`;
 
     const mapsURL = `https://maps.googleapis.com/maps/api/geocode/json`;
     axios.get(mapsURL, {
       params: {
-        address: location,
+        components: `country:ES|postal_code:${postalCode}`,
+        region: "ES",
         key: googleApiKey
       }
     })
