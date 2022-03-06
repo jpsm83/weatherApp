@@ -16,7 +16,7 @@ const DetailWeather = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const API_KEY = "9b6ef062a1de6aab80c70f4044a9bdc7";
+    const API_KEY = process.env.REACT_APP_OPEN_WEATHER_MAP_API_KEY;
     const { lat, lng } = currentLocation.results[0].geometry.location;
     axios
       .get(

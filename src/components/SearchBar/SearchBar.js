@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./SearchBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlassLocation } from "@fortawesome/free-solid-svg-icons";
@@ -25,16 +25,16 @@ const SearchBar = () => {
   };
 
   const geolocation = () => {
-    const googleApiKey = "AIzaSyDvgGZ6g32NvcVVPHR8rWyXc_syAkGQEvE";
     axios
       .get("https://maps.googleapis.com/maps/api/geocode/json", {
         params: {
           components: `country:ES|postal_code:${postCode}`,
           region: "ES",
-          key: googleApiKey,
+          key: process.env.REACT_APP_GOOGLE_API_KEY
         },
       })
       .then((res) => {
+        console.log(res.data)
         dispatch(setLocation(res.data))
       })
       .catch((error) => console.log(error));

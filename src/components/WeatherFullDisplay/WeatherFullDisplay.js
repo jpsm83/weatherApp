@@ -12,18 +12,19 @@ import { getLocation } from "../../features/locationSlice";
 const WeatherFullDisplay = () => {
   const navigate = useNavigate();
 
-  const currentLocation = useSelector(getLocation);
+  // const currentLocation = useSelector(getLocation);
+  // console.log(currentLocation)
 
   return (
     <div className="weather-full-display-container">
       <div className="weather-full-display-nav">
         <div className="weather-location-container">
-          <h4>
+          {/* <h4>
             Código postal:<strong>{currentLocation.results[0].address_components[0].short_name}</strong>
           </h4>
           <h4>
             Ciudad:<strong>{currentLocation.results[0].address_components[1].short_name}</strong>
-          </h4>
+          </h4> */}
         </div>
         <div className="weather-display-search">
           <FontAwesomeIcon
