@@ -26,10 +26,6 @@ function App() {
 
   // console.log(weather);
 
-  useEffect(() => {
-    geolocation()
-  }, []);
-
   const geolocation = () => {
     const postalCode = "08026";
     const googleApiKey = "AIzaSyDvgGZ6g32NvcVVPHR8rWyXc_syAkGQEvE";
