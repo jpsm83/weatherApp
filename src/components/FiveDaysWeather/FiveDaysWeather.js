@@ -10,7 +10,7 @@ const FiveDaysWeather = () => {
   const weather = useSelector(getWeather);
 
   const displayDailyWeather = () => {
-    const daysToShow = [weather.daily[1], weather.daily[2], weather.daily[3], weather.daily[4], weather.daily[5],];
+    const daysToShow = [weather.daily[1], weather.daily[2], weather.daily[3], weather.daily[4], weather.daily[5]];
     return daysToShow.map((day) => {
       return (
         <WeatherSingleCard

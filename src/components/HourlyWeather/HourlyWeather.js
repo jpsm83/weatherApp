@@ -3,20 +3,22 @@ import "./HourlyWeather.css";
 import WeatherSingleCard from "../WeatherSingleCard/WeatherSingleCard";
 import { useSelector } from "react-redux";
 import { getWeather } from "../../features/weatherSlice";
+import moment from "moment";
 
 const HourlyWeather = () => {
+
   const weather = useSelector(getWeather);
 
   const displayHourlyWeather = () => {
-    const timesToShow = [3600, 7200, 10800, 14400];
+    const timesToShow = [weather.hourly[0], weather.hourly[1], weather.hourly[2], weather.hourly[3]];
     return timesToShow.map((hour) => {
       return (
         <WeatherSingleCard
           typeOfCard="hourly"
-          icon={weather.current.weather[0].icon}
-          timezone={weather.timezone_offset}
-          weather={weather.current.weather[0].main}
-          temp={weather.current.temp}
+          hours={moment(hour.dt*1000).format("H[:]mm")}
+          icon={hour.weather[0].icon}
+          weather={hour.weather[0].main}
+          temp={hour.temp}
         />
       );
     });

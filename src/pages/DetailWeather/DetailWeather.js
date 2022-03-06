@@ -10,7 +10,6 @@ import { setWeather } from "../../features/weatherSlice";
 import axios from "axios";
 
 const DetailWeather = () => {
-
   const currentLocation = useSelector(getLocation);
 
   const dispatch = useDispatch();
@@ -20,13 +19,14 @@ const DetailWeather = () => {
     const { lat, lng } = currentLocation.results[0].geometry.location;
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=hourly,minutely&units=metric&appid=${API_KEY}`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=minutely&units=metric&appid=${API_KEY}`
       )
       .then((res) => {
+        console.log(res.data);
         dispatch(setWeather(res.data));
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [currentLocation]);
 
   return (
     <div className="detail-container">

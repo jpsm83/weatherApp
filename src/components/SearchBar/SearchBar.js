@@ -34,7 +34,6 @@ const SearchBar = () => {
         },
       })
       .then((res) => {
-        console.log(res.data)
         dispatch(setLocation(res.data))
       })
       .catch((error) => console.log(error));
