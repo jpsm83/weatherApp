@@ -9,8 +9,6 @@ const WeatherNow = () => {
 
 const weather = useSelector(getWeather)
 
-console.log(weather)
-
   return (
     <div className="weather-now-container">
       <h2>Ahora</h2>
@@ -18,7 +16,7 @@ console.log(weather)
         <FontAwesomeIcon icon={faSnowflake} className="weather-now-icon" />
         <div>
           <h3>{weather.current.weather[0].main}</h3>
-          <h2>-3*</h2>
+          <h2>{weather.current.temp}</h2>
         </div>
       </div>
     </div>
