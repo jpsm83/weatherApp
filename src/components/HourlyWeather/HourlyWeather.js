@@ -6,16 +6,21 @@ import { getWeather } from "../../features/weatherSlice";
 import moment from "moment";
 
 const HourlyWeather = () => {
-
   const weather = useSelector(getWeather);
 
   const displayHourlyWeather = () => {
-    const timesToShow = [weather.hourly[0], weather.hourly[1], weather.hourly[2], weather.hourly[3]];
-    return timesToShow.map((hour) => {
+    const timesToShow = [
+      weather.hourly[0],
+      weather.hourly[1],
+      weather.hourly[2],
+      weather.hourly[3],
+    ];
+    return timesToShow.map((hour, i) => {
       return (
         <WeatherSingleCard
+          key={i}
           typeOfCard="hourly"
-          hours={moment(hour.dt*1000).format("H[:]mm")}
+          hours={moment(hour.dt * 1000).format("H[:]mm")}
           icon={hour.weather[0].icon}
           weather={hour.weather[0].main}
           temp={hour.temp}

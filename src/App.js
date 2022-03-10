@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import "./App.css";
 import Home from "./pages/Home/Home";
 import DetailWeather from "./pages/DetailWeather/DetailWeather"
