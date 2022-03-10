@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchAsyncLocation = createAsyncThunk(
-  "imdb/fetchAsyncLocation",
+  "location/fetchAsyncLocation",
   async (postCode) => {
     const response = await axios.get(
       "https://maps.googleapis.com/maps/api/geocode/json",
@@ -38,6 +38,11 @@ const locationSlice = createSlice({
       console.log("Fetched Successfully!");
       return { ...state, locationNow: payload };
     },
+    // [fetchAsyncLocation.fulfilled]: (state, { payload }) => {
+    //   console.log("Fetched Successfully!");
+    //   return (state.locationNow = payload);
+    // },
+
     [fetchAsyncLocation.rejected]: () => {
       console.log("Rejected!");
     },

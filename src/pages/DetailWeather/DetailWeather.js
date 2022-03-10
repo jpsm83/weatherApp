@@ -30,7 +30,7 @@ const DetailWeather = () => {
       </div>
       <div className="weather-containers">
         <WeatherFullDisplay />
-        {/* <TopFiveZones /> */}
+        <TopFiveZones />
       </div>
     </div>
   );
