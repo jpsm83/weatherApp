@@ -1,25 +1,7 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-
-export const fetchAsyncLocation = createAsyncThunk(
-  "location/fetchAsyncLocation",
-  async (postCode) => {
-    const response = await axios.get(
-      "https://maps.googleapis.com/maps/api/geocode/json",
-      {
-        params: {
-          components: `country:ES|postal_code:${postCode}`,
-          region: "ES",
-          key: process.env.REACT_APP_GOOGLE_API_KEY,
-        },
-      }
-    );
-    return response.data;
-  }
-);
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  locationNow: "",
+  locationDetails: "",
 };
 
 const locationSlice = createSlice({
@@ -27,30 +9,16 @@ const locationSlice = createSlice({
   initialState,
   reducers: {
     setLocation: (state, action) => {
-      state.locationNow = action.payload;
+      state.locationDetails = action.payload;
     },
-  },
-  extraReducers: {
-    [fetchAsyncLocation.pending]: () => {
-      console.log("Pending");
-    },
-    [fetchAsyncLocation.fulfilled]: (state, { payload }) => {
-      console.log("Fetched Successfully!");
-      return { ...state, locationNow: payload };
-    },
-    // [fetchAsyncLocation.fulfilled]: (state, { payload }) => {
-    //   console.log("Fetched Successfully!");
-    //   return (state.locationNow = payload);
-    // },
-
-    [fetchAsyncLocation.rejected]: () => {
-      console.log("Rejected!");
-    },
+    cleanLocation: (state) => {
+      state.locationDetails = ""
+    }
   },
 });
 
-export const { setLocation } = locationSlice.actions;
+export const { setLocation, cleanLocation } = locationSlice.actions;
 
-export const getLocation = (state) => state.location.locationNow;
+export const getLocationData = (state) => state.location.locationDetails;
 
 export default locationSlice.reducer;

@@ -1,22 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import WeatherFullDisplay from "../../components/WeatherFullDisplay/WeatherFullDisplay";
 import TopFiveZones from "../../components/TopFiveZones/TopFiveZones";
 import "./DetailWeather.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBoltLightning } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch, useSelector } from "react-redux";
-import { getLocation } from "../../features/locationSlice";
-import { fetchAsyncWeather } from "../../features/weatherSlice";
 
 const DetailWeather = () => {
-
-  const currentLocation = useSelector(getLocation);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchAsyncWeather(currentLocation))
-  }, [])
 
   return (
     <div className="detail-container">

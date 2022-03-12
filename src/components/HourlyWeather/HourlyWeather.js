@@ -1,19 +1,16 @@
 import React from "react";
 import "./HourlyWeather.css";
 import WeatherSingleCard from "../WeatherSingleCard/WeatherSingleCard";
-import { useSelector } from "react-redux";
-import { getWeather } from "../../features/weatherSlice";
 import moment from "moment";
 
-const HourlyWeather = () => {
-  const weather = useSelector(getWeather);
+const HourlyWeather = (props) => {
 
   const displayHourlyWeather = () => {
     const timesToShow = [
-      weather.hourly[0],
-      weather.hourly[1],
-      weather.hourly[2],
-      weather.hourly[3],
+      props.weatherDetails.hourly[0],
+      props.weatherDetails.hourly[1],
+      props.weatherDetails.hourly[2],
+      props.weatherDetails.hourly[3],
     ];
     return timesToShow.map((hour, i) => {
       return (

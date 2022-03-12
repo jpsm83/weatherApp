@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./WeatherFullDisplay.css";
 import { useNavigate } from "react-router-dom";
 import WeatherNow from "../WeatherNow/WeatherNow";
@@ -7,12 +7,29 @@ import FiveDaysWeather from "../FiveDaysWeather/FiveDaysWeather";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlassLocation } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
-import { getLocation } from "../../features/locationSlice";
+import { getLocationData } from "../../features/locationSlice";
+import axios from "axios";
 
 const WeatherFullDisplay = () => {
+  const [weatherDetails, setWeatherDetails] = useState();
+
   const navigate = useNavigate();
 
-  const currentLocation = useSelector(getLocation);
+  const currentLocation = useSelector(getLocationData);
+
+  useEffect(() => {
+    getWeatherDetails();
+  }, [currentLocation]);
+
+  const getWeatherDetails = async () => {
+    const API_KEY = process.env.REACT_APP_OPEN_WEATHER_MAP_API_KEY;
+    const { lat, lng } = currentLocation.results[0].geometry.location;
+    const response = await axios.get(
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=minutely&units=metric&appid=${API_KEY}`
+    );
+    console.log(response.data)
+    setWeatherDetails(response.data);
+  };
 
   return (
     <div className="weather-full-display-container">
@@ -40,9 +57,9 @@ const WeatherFullDisplay = () => {
         </div>
       </div>
       <div className="weather-full-display-details">
-        <WeatherNow />
-        <HourlyWeather />
-        <FiveDaysWeather />
+        {/* <WeatherNow weatherDetails={weatherDetails} /> */}
+        {/* <HourlyWeather weatherDetails={weatherDetails} /> */}
+        {/* <FiveDaysWeather weatherDetails={weatherDetails} /> */}
       </div>
     </div>
   );

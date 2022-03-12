@@ -1,20 +1,17 @@
 import React from "react";
 import "./FiveDaysWeather.css";
 import WeatherSingleCard from "../WeatherSingleCard/WeatherSingleCard";
-import { useSelector } from "react-redux";
-import { getWeather } from "../../features/weatherSlice";
 import moment from "moment";
 
 const FiveDaysWeather = () => {
-  const weather = useSelector(getWeather);
 
-  const displayDailyWeather = () => {
+  const displayDailyWeather = (props) => {
     const daysToShow = [
-      weather.daily[1],
-      weather.daily[2],
-      weather.daily[3],
-      weather.daily[4],
-      weather.daily[5],
+      props.weatherDetails.daily[1],
+      props.weatherDetails.daily[2],
+      props.weatherDetails.daily[3],
+      props.weatherDetails.daily[4],
+      props.weatherDetails.daily[5],
     ];
     return daysToShow.map((day, i) => {
       return (
