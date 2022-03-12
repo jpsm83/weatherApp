@@ -3,14 +3,14 @@ import "./HourlyWeather.css";
 import WeatherSingleCard from "../WeatherSingleCard/WeatherSingleCard";
 import moment from "moment";
 
-const HourlyWeather = (props) => {
+const HourlyWeather = ({ weatherDetails }) => {
 
   const displayHourlyWeather = () => {
     const timesToShow = [
-      props.weatherDetails.hourly[0],
-      props.weatherDetails.hourly[1],
-      props.weatherDetails.hourly[2],
-      props.weatherDetails.hourly[3],
+      weatherDetails.hourly[0],
+      weatherDetails.hourly[1],
+      weatherDetails.hourly[2],
+      weatherDetails.hourly[3],
     ];
     return timesToShow.map((hour, i) => {
       return (

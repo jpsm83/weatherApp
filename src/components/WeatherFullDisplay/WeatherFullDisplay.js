@@ -19,15 +19,14 @@ const WeatherFullDisplay = () => {
 
   useEffect(() => {
     getWeatherDetails();
-  }, [currentLocation]);
+  }, []);
 
   const getWeatherDetails = async () => {
     const API_KEY = process.env.REACT_APP_OPEN_WEATHER_MAP_API_KEY;
-    const { lat, lng } = currentLocation.results[0].geometry.location;
+    const { lat, lng } = await currentLocation.results[0].geometry.location;
     const response = await axios.get(
       `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=minutely&units=metric&appid=${API_KEY}`
     );
-    console.log(response.data)
     setWeatherDetails(response.data);
   };
 
@@ -57,9 +56,9 @@ const WeatherFullDisplay = () => {
         </div>
       </div>
       <div className="weather-full-display-details">
-        {/* <WeatherNow weatherDetails={weatherDetails} /> */}
-        {/* <HourlyWeather weatherDetails={weatherDetails} /> */}
-        {/* <FiveDaysWeather weatherDetails={weatherDetails} /> */}
+        <WeatherNow weatherDetails={weatherDetails} />
+        <HourlyWeather weatherDetails={weatherDetails} />
+        <FiveDaysWeather weatherDetails={weatherDetails} />
       </div>
     </div>
   );

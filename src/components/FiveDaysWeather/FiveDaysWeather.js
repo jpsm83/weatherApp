@@ -3,15 +3,15 @@ import "./FiveDaysWeather.css";
 import WeatherSingleCard from "../WeatherSingleCard/WeatherSingleCard";
 import moment from "moment";
 
-const FiveDaysWeather = () => {
+const FiveDaysWeather = ({ weatherDetails }) => {
 
-  const displayDailyWeather = (props) => {
+  const displayDailyWeather = () => {
     const daysToShow = [
-      props.weatherDetails.daily[1],
-      props.weatherDetails.daily[2],
-      props.weatherDetails.daily[3],
-      props.weatherDetails.daily[4],
-      props.weatherDetails.daily[5],
+      weatherDetails.daily[1],
+      weatherDetails.daily[2],
+      weatherDetails.daily[3],
+      weatherDetails.daily[4],
+      weatherDetails.daily[5],
     ];
     return daysToShow.map((day, i) => {
       return (
